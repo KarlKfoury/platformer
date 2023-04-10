@@ -1,0 +1,1029 @@
+<html>
+<head>
+<style>
+body {
+background-color: cyan
+}
+#sky {
+width: 700%;
+height: 75%;
+background: cyan;
+position: relative;
+z-index: -10
+}
+#time {
+width: 2%;
+height: 5%;
+font-size: 200%;
+position: fixed;
+color: black;
+}
+#ground {
+width: 700%;
+height: 35%;
+background: green;
+position: relative;
+}
+#mario {
+position: absolute;
+background: red;
+border-radius: 20%;
+z-index: 900
+}
+.fakh {
+position: absolute;
+background: orange;
+}
+
+.pipe {
+position: absolute;
+background: yellow;
+z-index: 800
+}
+.hint {
+position: absolute;
+background: transparent
+}
+.wall {
+position: absolute;
+background: white;
+z-index: 800
+}
+.plat {
+position: absolute;
+background: black;
+color: white;
+}
+.doub {
+position: absolute;
+background: blue;
+}
+.opp {
+position: absolute;
+background: pink;
+}
+.key {
+position: absolute;
+background: rgb(200, 200, 200);
+}
+.shot {
+position: absolute;
+background: gray;
+}
+.out {
+width: 0px
+height: 0px;
+}
+.check {
+position: absolute;
+background: rgb(200, 255, 255);
+}
+</style>
+</head>
+<body height="500px">
+<div id="time"></div>
+<div id="sky">
+<br><br><br>
+W: JUMP<br>
+S: DUCK<br>
+A: MOVE LEFT<br>
+D: MOVE RIGHT<br>
+JUMP + HOLD(W, A, D) + SPACEBAR: TELEPORT(top, left, right)<br></div>
+<div id="ground">
+<div id="mario"></div>
+<div class="pipe p1" id="pipe1"></div>
+<div class="hint h1" id="hint1"></div>
+<div class="hint h1" id="hint2"></div>
+<div class="hint h1" id="hint3"></div>
+<div class="hint h1" id="hint4"></div>
+<div class="hint h1" id="hint5"></div>
+<div class="hint h2" id="hint6"></div>
+<div class="hint h3" id="hint7"></div>
+<div class="pipe p1" id="pipe2"></div>
+<div class="pipe p1" id="pipe4"></div>
+<div class="pipe p1" id="pipe3"></div>
+<div class="plat t1" id="plat1"></div>
+<div class="pipe p1" id="pipe5"></div>
+<div class="pipe p1" id="pipe6"></div>
+<div class="plat t1" id="plat2"></div>
+<div class="opp o1" id="opp1"></div>
+<div class="opp o1" id="opp2"></div>
+<div class="opp o2" id="opp4"></div>
+<div class="opp o2" id="opp5"></div>
+<div class="opp o1" id="opp3"></div>
+<div class="opp o3" id="opp6"></div>
+<div class="pipe p1" id="pipe8"></div>
+<div class="pipe p1" id="pipe10"></div>
+<div class="pipe p1" id="pipe11"></div>
+<div class="pipe p1" id="pipe9"></div>
+<div class="plat t1" id="plat3"></div>
+<div class="plat t1" id="plat4"></div>
+<div class="plat t1" id="plat5"></div>
+<div class="plat t1" id="plat6"></div>
+<div class="plat t1" id="plat7"></div>
+<div class="plat t2" id="plat8"></div>
+<div class="plat t2" id="plat11"></div>
+<div class="plat t2" id="plat10"></div>
+<div class="pipe p1" id="pipe12"></div>
+<div class="pipe p1" id="pipe13"></div>
+<div class="wall w1" id="wall3"></div>
+<div class="pipe p2" id="pipe15"></div>
+<div class="pipe p2" id="pipe16"></div>
+<div class="pipe p2" id="pipe17"></div>
+<div class="pipe p2" id="pipe18"></div>
+<div class="pipe p2" id="pipe19"></div>
+<div class="pipe p2" id="pipe20"></div>
+<div class="pipe p2" id="pipe21"></div>
+<div class="pipe p2" id="pipe22"></div>
+<div class="pipe p2" id="pipe23"></div>
+<div class="wall w2" id="wall5"></div>
+<div class="pipe p3" id="pipe25"></div>
+<div class="pipe p3" id="pipe26"></div>
+<div class="pipe p3" id="pipe27"></div>
+<div class="pipe p3" id="pipe28"></div>
+<div class="pipe p3" id="pipe29"></div>
+<div class="plat t2" id="plat9"></div>
+<div class="plat t2" id="plat12"></div>
+<div class="doub d2" id="doub2"></div>
+<div class="doub d2" id="doub3"></div>
+<div class="doub d3" id="doub4"></div>
+<div class="doub d3" id="doub5"></div>
+<div class="doub d3" id="doub6"></div>
+<div class="doub d3" id="doub10"></div>
+<div class="pipe p3" id="pipe30"></div>
+<div class="pipe p3" id="pipe31"></div>
+<div class="pipe p3" id="pipe33"></div>
+<div class="doub d2" id="doub1"></div>
+<div class="fakh f2" id="fakh1"></div>
+<div class="fakh f2" id="fakh2"></div>
+<div class="key k3" id="key26"></div>
+<div class="key k3" id="key28"></div>
+<div class="key k3" id="key33"></div>
+<div class="check" id="check2"></div>
+<div class="check" id="check3"></div>
+<div class="check" id="check4"></div>
+<div class="check" id="check5"></div>
+<div class="wall w3" id="wall4"></div>
+<div class="wall w4" id="wall1"></div>
+<div class="wall w4" id="wall2"></div>
+<div class="doub d4" id="doub7"></div>
+<div class="doub d4" id="doub8"></div>
+<div class="doub d4" id="doub9"></div>
+<div class="opp o4" id="zaddy"></div>
+<div class="pipe p4" id="bard"></div>
+<div class="pipe p4" id="bar"></div>
+
+</div>
+<script>
+var hp = 2
+var ctd = "no"
+var rate = 0.2
+var hold = "no"
+var tpa = "ok"
+var tpd = "ok"
+var tpw = "ok"
+var tpr = 10
+var zawarudo = "ok"
+var stoptime = "no"
+var ground = 100
+var form = "no"
+var jumping = "no"
+var camera = "center"
+var time = "no"
+document.getElementById("time").innerHTML = sessionStorage.getItem("time")
+fall = [0, 0]
+
+mario = document.getElementById("mario")
+
+var levl = sessionStorage.getItem("level")
+var stard = sessionStorage.getItem("start")
+if (levl == null) {
+levl = "p1"
+stard = "0%"
+}
+
+mario.style.bottom = "100%"
+mario.style.left = stard
+mario.style.height = "10%"
+mario.style.width = "0.3%"
+
+pipe1.style.left = "1.5%"
+pipe1.style.height = "35%"
+pipe1.style.width = "0.1%"
+pipe1.style.bottom = "100%"
+
+hint1.style.left = "0%"
+hint1.style.height = "100%"
+hint1.style.width = "1%"
+hint1.style.bottom = "100%"
+hint1.hint = "W: JUMP \nD: MOVE LEFT \nA: MOVE RIGHT \n HOLD TO SPRINT"
+
+pipe2.style.left = "4%"
+pipe2.style.height = "25%"
+pipe2.style.width = "0.6%"
+pipe2.style.bottom = "100%"
+
+pipe3.style.left = "10%"
+pipe3.style.height = "100%"
+pipe3.style.width = "2.5%"
+pipe3.style.bottom = "105.1%"
+
+hint2.style.left = "9%"
+hint2.style.height = "100%"
+hint2.style.width = "1%"
+hint2.style.bottom = "100%"
+hint2.hint = "HOLD S: DUCK\n"
+
+pipe4.style.left = "6%"
+pipe4.style.height = "100%"
+pipe4.style.width = "1%"
+pipe4.style.bottom = "100%"
+
+hint3.style.left = "5%"
+hint3.style.height = "100%"
+hint3.style.width = "1%"
+hint3.style.bottom = "100%"
+hint3.hint = "JUMP + hold W/A/D + SPACEBAR: TELEPORT TO TARGET DIRECTION"
+
+plat1.style.left = "13%"
+plat1.style.height = "8%"
+plat1.style.width = "2%"
+plat1.style.bottom = "160%"
+
+pipe6.style.left = "15%"
+pipe6.style.height = "145%"
+pipe6.style.width = "1%"
+pipe6.style.bottom = "100%"
+
+pipe5.style.left = "15%"
+pipe5.style.height = "65%"
+pipe5.style.width = "2%"
+pipe5.style.bottom = "100%"
+
+plat2.style.left = "16%"
+plat2.style.height = "8%"
+plat2.style.width = "1%"
+plat2.style.bottom = "160%"
+
+hint4.style.left = "18%"
+hint4.style.height = "100%"
+hint4.style.width = "1%"
+hint4.style.bottom = "100%"
+hint4.hint = "J: SHOOT\nS: DUCK"
+
+opp1.style.left = "20%"
+opp1.style.height = "10%"
+opp1.style.width = "0.3%"
+opp1.style.bottom = "100%"
+
+pipe9.style.left = "24%"
+pipe9.style.height = "75%"
+pipe9.style.width = "1%"
+pipe9.style.bottom = "115%"
+
+pipe8.style.left = "23%"
+pipe8.style.height = "120%"
+pipe8.style.width = "1%"
+pipe8.style.bottom = "105.1%"
+
+opp2.style.left = "24.2%"
+opp2.style.height = "10%"
+opp2.style.width = "0.3%"
+opp2.style.bottom = "100%"
+
+
+opp3.style.left = "31%"
+opp3.style.height = "10%"
+opp3.style.width = "0.3%"
+opp3.style.bottom = "180%"
+
+plat3.style.left = "24%"
+plat3.style.height = "6%"
+plat3.style.width = "1.85%"
+plat3.style.bottom = "190%"
+
+plat5.style.left = "22%"
+plat5.style.height = "8%"
+plat5.style.width = "2%"
+plat5.style.bottom = "220%"
+
+plat6.style.left = "21%"
+plat6.style.height = "8%"
+plat6.style.width = "6%"
+plat6.style.bottom = "270%"
+
+plat7.style.left = "27%"
+plat7.style.height = "8%"
+plat7.style.width = "4%"
+plat7.style.bottom = "290%"
+
+
+pipe13.style.left = "23%"
+pipe13.style.height = "4%"
+pipe13.style.width = "1%"
+pipe13.style.bottom = "446%"
+
+pipe10.style.left = "25%"
+pipe10.style.height = "50%"
+pipe10.style.width = "3%"
+pipe10.style.bottom = "120%"
+
+plat4.style.left = "28%"
+plat4.style.height = "8%"
+plat4.style.width = "0.5%"
+plat4.style.bottom = "170%"
+
+pipe11.style.left = "28%"
+pipe11.style.height = "5%"
+pipe11.style.width = "0.5%"
+pipe11.style.bottom = "160%"
+
+
+pipe12.style.left = "28.5%"
+pipe12.style.height = "190%"
+pipe12.style.width = "2.2%"
+pipe12.style.bottom = "100%"
+
+wall3.style.left = "33%"
+wall3.style.height = "300%"
+wall3.style.width = "2.2%"
+wall3.style.bottom = "100%"
+
+hint5.style.left = "31.7%"
+hint5.style.height = "100%"
+hint5.style.width = "1%"
+hint5.style.bottom = "100%"
+hint5.hint = "GO DIRECTLY OVER WHITE AND PRESS C"
+
+check2.style.left = "32.7%"
+check2.style.height = "300%"
+check2.style.width = "0.3%"
+check2.style.bottom = "100%"
+
+
+plat8.style.left = "36.4%"
+plat8.style.height = "10%"
+plat8.style.width = "1%"
+plat8.style.bottom = "270%"
+
+hint6.style.left = "36%"
+hint6.style.height = "100%"
+hint6.style.width = "1%"
+hint6.style.bottom = "100%"
+hint6.hint = "TAKING THE BLUE CUBE: REFRESHES ABILITY TO TELEPORT \nPRESS S WHILE IN JUMP: END JUMP"
+
+doub1.style.left = "37%"
+doub1.style.height = "12%"
+doub1.style.width = "0.4%"
+doub1.style.bottom = "200%"
+
+pipe15.style.left = "37.4%"
+pipe15.style.height = "170%"
+pipe15.style.width = "1.8%"
+pipe15.style.bottom = "100%"
+
+pipe16.style.left = "41%"
+pipe16.style.height = "110%"
+pipe16.style.width = "1.8%"
+pipe16.style.bottom = "120%"
+
+pipe17.style.left = "42.8%"
+pipe17.style.height = "20%"
+pipe17.style.width = "3.2%"
+pipe17.style.bottom = "120%"
+
+ 
+plat10.style.left = "42.8%"
+plat10.style.height = "12%"
+plat10.style.width = "1.2%"
+plat10.style.bottom = "140%"
+
+
+pipe18.style.left = "46%"
+pipe18.style.height = "8%"
+pipe18.style.width = "0.6%"
+pipe18.style.bottom = "220%"
+ 
+pipe19.style.left = "46.6%"
+pipe19.style.height = "132%"
+pipe19.style.width = "2.2%"
+pipe19.style.bottom = "100%"
+
+plat9.style.left = "46%"
+plat9.style.height = "8%"
+plat9.style.width = "0.6%"
+plat9.style.bottom = "180%"
+
+
+plat11.style.left = "41%"
+plat11.style.height = "6%"
+plat11.style.width = "2.2%"
+plat11.style.bottom = "230%"
+
+doub2.style.left = "44.7%"
+doub2.style.height = "12%"
+doub2.style.width = "0.4%"
+doub2.style.bottom = "260%"
+
+doub3.style.left = "51.4%"
+doub3.style.height = "12%"
+doub3.style.width = "0.4%"
+doub3.style.bottom = "160%"
+
+
+plat12.style.left = "47%"
+plat12.style.height = "6%"
+plat12.style.width = "2%"
+plat12.style.bottom = "232%"
+
+
+
+fakh1.style.left = "42.3%"
+fakh1.style.height = "10%"
+fakh1.style.width = "0.3%"
+fakh1.style.bottom = "100%"
+
+opp4.style.left = "42%"
+opp4.style.height = "10%"
+opp4.style.width = "0.3%"
+opp4.style.bottom = "110%"
+
+opp5.style.left = "42%"
+opp5.style.height = "10%"
+opp5.style.width = "0.3%"
+opp5.style.bottom = "100%"
+
+pipe20.style.left = "48.8%"
+pipe20.style.height = "20%"
+pipe20.style.width = "4.7%"
+pipe20.style.bottom = "100%"
+
+fakh2.style.left = "55.2%"
+fakh2.style.height = "10%"
+fakh2.style.width = "0.3%"
+fakh2.style.bottom = "100%"
+
+pipe21.style.left = "55.5%"
+pipe21.style.height = "70%"
+pipe21.style.width = "3%"
+pipe21.style.bottom = "105.1%"
+
+pipe22.style.left = "55.3%"
+pipe22.style.height = "40%"
+pipe22.style.width = "0.2%"
+pipe22.style.bottom = "125%"
+
+pipe23.style.left = "59.2%"
+pipe23.style.height = "70%"
+pipe23.style.width = "2%"
+pipe23.style.bottom = "100%"
+
+wall5.style.left = "62%"
+wall5.style.height = "300%"
+wall5.style.width = "2.2%"
+wall5.style.bottom = "100%"
+
+doub4.style.left = "66.8%"
+doub4.style.height = "10%"
+doub4.style.width = "0.3%"
+doub4.style.bottom = "190%"
+
+key26.style.left = "67%"
+key26.style.height = "10%"
+key26.style.width = "0.3%"
+key26.style.bottom = "240%"
+
+pipe26.style.left = "68.5%"
+pipe26.style.height = "300%"
+pipe26.style.width = "2.2%"
+pipe26.style.bottom = "100%"
+pipe26.style.background = "#835C3B"
+ 
+
+pipe27.style.left = "71.6%"
+pipe27.style.height = "80%"
+pipe27.style.width = "2.9%"
+pipe27.style.bottom = "105.1%"
+
+
+key28.style.left = "72.6%"
+key28.style.height = "10%"
+key28.style.width = "0.3%"
+key28.style.bottom = "190%"
+
+pipe29.style.left = "74.9%"
+pipe29.style.height = "60%"
+pipe29.style.width = "0.7%"
+pipe29.style.bottom = "105.1%"
+
+pipe28.style.left = "71.6%"
+pipe28.style.height = "5.1%"
+pipe28.style.width = "4%"
+pipe28.style.bottom = "100%"
+pipe28.style.background = "#835C3B"
+
+pipe29.style.left = "76%"
+pipe29.style.height = "5%"
+pipe29.style.width = "1%"
+pipe29.style.bottom = "140%"
+
+doub5.style.left = "76.4%"
+doub5.style.height = "10%"
+doub5.style.width = "0.3%"
+doub5.style.bottom = "170%"
+
+pipe30.style.left = "76%"
+pipe30.style.height = "5%"
+pipe30.style.width = "1%"
+pipe30.style.bottom = "220%"
+
+doub6.style.left = "76.4%"
+doub6.style.height = "10%"
+doub6.style.width = "0.3%"
+doub6.style.bottom = "230%"
+
+doub10.style.left = "76.4%"
+doub10.style.height = "10%"
+doub10.style.width = "0.3%"
+doub10.style.bottom = "170%"
+
+key33.style.left = "76.4%"
+key33.style.height = "10%"
+key33.style.width = "0.3%"
+key33.style.bottom = "340%"
+
+pipe33.style.left = "77%"
+pipe33.style.height = "200%"
+pipe33.style.width = "2.2%"
+pipe33.style.bottom = "100%"
+pipe33.style.background = "#835C3B"
+
+doub9.style.left = "91%"
+doub9.style.height = "10%"
+doub9.style.width = "0.3%"
+doub9.style.bottom = "260%"
+
+
+opp6.style.left = "76.2%"
+opp6.style.height = "10%"
+opp6.style.width = "0.3%"
+opp6.style.bottom = "95%"
+
+pipe25.style.left = "65%"
+pipe25.style.height = "20%"
+pipe25.style.width = "3.4%"
+pipe25.style.bottom = "100%"
+
+
+hint7.style.left = "63%"
+hint7.style.height = "100%"
+hint7.style.width = "1%"
+hint7.style.bottom = "100%"
+hint7.hint = "TAKING THE GRAY CUBE: REMOVES BROWN BLOCK"
+
+check3.style.left = "61.7%"
+check3.style.height = "300%"
+check3.style.width = "0.3%"
+check3.style.bottom = "100%"
+
+check4.style.left = "81.5%"
+check4.style.height = "300%"
+check4.style.width = "0.3%"
+check4.style.bottom = "100%"
+
+wall4.style.left = "81.8%"
+wall4.style.height = "300%"
+wall4.style.width = "2.2%"
+wall4.style.bottom = "100%"
+
+doub7.style.left = "91%"
+doub7.style.height = "10%"
+doub7.style.width = "0.3%"
+doub7.style.bottom = "150%"
+
+doub8.style.left = "91%"
+doub8.style.height = "10%"
+doub8.style.width = "0.3%"
+doub8.style.bottom = "200%"
+
+wall1.style.left = "91.3%"
+wall1.style.height = "300%"
+wall1.style.width = "3%"
+wall1.style.bottom = "100%"
+wall1.style.zIndex = -10
+
+zaddy.style.left = "93%"
+zaddy.style.height = "25%"
+zaddy.style.width = "0.8%"
+zaddy.style.bottom = "100%"
+zaddy.style.borderRadius = "20%"
+zaddy.style.zIndex = 800
+
+
+bar.style.left = "93%"
+bar.style.height = "10%"
+bar.style.width = "2%"
+bar.style.bottom = "250%"
+bar.style.background = "red"
+
+bard.style.left = "93%"
+bard.style.height = "10%"
+bard.style.width = "2%"
+bard.style.bottom = "250%"
+bard.style.background = "gray"
+
+check5.style.left = "97.5%"
+check5.style.height = "300%"
+check5.style.width = "0.3%"
+check5.style.bottom = "100%"
+
+wall2.style.left = "97.8%"
+wall2.style.height = "300%"
+wall2.style.width = "2.2%"
+wall2.style.bottom = "100%"
+
+lose_status = "no"
+
+function makeopp(item, ind, j, i, x) {
+if (item.wait == undefined) {
+q = 0
+}
+else {
+q = item.wait
+}
+function f(){
+bull = document.createElement("div")
+document.getElementById("ground").appendChild(bull)
+bull.className = "pipe " + levl
+bull.style.width = "0.15%"
+bull.style.height = "5%"
+bull.style.background = "rgb(80, 50, 50)"
+bull.style.left = item.style.left
+bull.style.bottom = (parseFloat(item.style.bottom) + 5.1) + "%"
+bullet(bull, 0, -1, i, j)
+}
+setTimeout(function() {f()
+if (x == "yes") {
+window[item.id] = setInterval(f, 2500)
+}
+}, q)
+}
+
+
+
+function desp() {
+Array.from(document.getElementsByClassName("opp o" + levl[1])).forEach(function(item, ind){
+if (item.id[0] == "o") {
+makeopp(item, ind, 10, 50, "yes")
+}
+})
+}
+desp()
+
+
+
+
+function a(x) {
+x.style.width = "0%"
+}
+
+function timer() {
+if (sessionStorage.getItem("time") == null) {
+sessionStorage.setItem("time", 0)
+}
+setInterval(function(){document.getElementById("time").innerHTML = parseFloat(sessionStorage.getItem("time")) + 1/10
+sessionStorage.setItem("time", parseFloat(sessionStorage.getItem("time")) + 1/10)
+}, 100)
+}
+
+
+
+function b() {
+Array.from(document.getElementsByClassName("doub d" + levl[1])).forEach(function(item){
+item.style.width = parseFloat(item.style.height)/30 + "%"
+})
+Array.from(document.getElementsByClassName("key k" + levl[1])).forEach(function(item){
+item.style.width = parseFloat(item.style.height)/30 + "%"
+})
+}
+
+
+function point() {
+var yes = "no"
+Array.from(document.getElementsByClassName("check")).forEach(function(item){
+if (item.style.left == mario.style.left){
+yes = "yes"
+levl = levl[0] + item.id[5]
+mario.style.left = (parseFloat(mario.style.left) + 2.6) + "%"
+sessionStorage.setItem("level", levl)
+sessionStorage.setItem("start", mario.style.left)
+if (levl == "p5") {
+window.location.href = "lvl2.html"
+}
+}
+})
+if (yes != "yes") {
+alert("STAND DIRECTLY ON CHECKPOINT AND PRESS C")
+}
+}
+
+
+function boss() {
+var t = 0
+function tick(){
+if (levl == "p4") {
+t++
+if (t%50 > 20 && t%50 < 35) {
+var jeff = (parseFloat(zaddy.style.bottom) + Math.round(Math.random()*25) + 10)*(Math.round(Math.random()*2) - 1) 
+if (jeff < 110) {
+jeff = (parseFloat(zaddy.style.bottom) + Math.round(Math.random()*25) + 10)
+}
+if (jeff > 160) {
+jeff = (parseFloat(zaddy.style.bottom) + Math.round(Math.random()*25)*-1)
+}
+zaddy.style.bottom = jeff + "%"
+makeopp(zaddy, 0, 50, 100, "no")
+}
+if (t%50 > 1 && t%50 < 15 && t%3 == 0) {
+var c = Math.round(Math.random()*55) + 110
+zaddy.style.bottom = c + "%"
+oppt = make("0.3%", "10%", parseFloat(wall1.style.left) + 0.7 + "%", c + "%", "opp o" + levl[1])
+oppt.zIndex = 10000
+oppt.wait = 0
+oppt.id = "opt" + t
+makeopp(oppt, 0, 50, 100, "yes")
+}
+if (t%5 == 0 && t%50 > 35) {
+zaddy.style.bottom = "100%"
+bull = make("1%", "100%", zaddy.style.left, "100%", "pipe " + levl)
+bullet(bull, 0, -1, 250, 50)
+}
+}
+setTimeout(tick, 600 + hp*200)
+}
+tick()
+}
+boss()
+
+
+function make(wid, hei, lef, bot, cl) {
+bullz = document.createElement("div")
+document.getElementById("ground").appendChild(bullz)
+bullz.className = cl
+bullz.style.width = wid
+bullz.style.height = hei
+bullz.style.left = lef
+bullz.style.bottom = bot
+return bullz
+}
+
+function bullet(b, i, d, s, f) {
+if (i < f) {
+b.style.left = (parseFloat(b.style.left) + d*0.2) + "%"
+setTimeout(bullet.bind(b, b, i + 1, d, s, f), s)
+check("w")
+}
+else {
+b.outerHTML = " "
+}
+}
+
+function bullex(b, i) {
+if (i < 10) {
+b.style.left = (parseFloat(b.style.left) + 0.2) + "%"
+setTimeout(bullex.bind(b, b, i + 1), 25)
+Array.from(document.getElementsByClassName("opp o" + levl[1])).forEach(function(item, ind){
+if (parseFloat(b.style.left) + parseFloat(b.style.width) > parseFloat(item.style.left) && parseFloat(b.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(b.style.bottom) + parseFloat(b.style.height) >= parseFloat(item.style.bottom) && parseFloat(b.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height)) {
+if (item.id =="zaddy") {
+hp = hp - 0.1
+bar.style.width = hp + "%"
+zaddy.style.border = "1px solid red"
+setTimeout(function(){zaddy.style.border = "0px solid red"}, 500)
+if (hp <= 0) {
+item.outerHTML = " "
+bard.outerHTML = " "
+bar.outerHTML = " "
+wall1.style.width = "0%"
+}
+}
+else {item.outerHTML = " "
+clearInterval(window[item.id])
+}
+}
+})
+}
+else {
+b.outerHTML = " "
+}
+}
+
+
+function check(l) {
+Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
+setTimeout(function(){
+if (lose_status != "yes") {
+alert("gameover")
+}
+lose_status = "yes"
+window.location.reload()
+}, 20)
+}
+})
+Array.from(document.getElementsByClassName("wall w" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
+mario.style.left = parseFloat(item.style.left) - parseFloat(mario.style.width) + "%"
+}
+})
+Array.from(document.getElementsByClassName("hint h" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
+a(item)
+alert(item.hint)
+}
+})
+Array.from(document.getElementsByClassName("key k" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%") {
+item.style.width = "0%"
+document.getElementById("pipe" + item.id[3] + item.id[4]).style.width = "0%"
+}
+})
+Array.from(document.getElementsByClassName("fakh f" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%") {
+bull = make("0.5%", "50%", (parseFloat(item.style.left) - 3) + "%", item.style.bottom, "pipe " + levl)
+item.style.width = "0%"
+bullet(bull, 0, 1, 184, 40)
+}
+})
+Array.from(document.getElementsByClassName("doub d" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%") {
+tpa = "ok"
+tpw = "ok"
+tpd = "ok"
+b()
+a(item)
+if (levl[1] != 4) {
+tpr = tpr*1.5
+}
+else {
+tpr = 15
+}
+}
+})
+Array.from(document.getElementsByClassName("opp o" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height)){
+window.location.reload()
+}
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) == parseFloat(item.style.bottom) + parseFloat(item.style.height)) {
+clearInterval(parseInt(item.id[3]) + 1)
+item.outerHTML = " "
+}
+})
+if (form == "yes" && l != "w"){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) >= fall[1] || parseFloat(mario.style.left) <= fall[0]){
+form = "no"
+jump(31)
+}
+}
+}
+
+function plat(){
+j = "ok"
+Array.from(document.getElementsByClassName("plat t" + levl[1])).forEach(function(item){
+if (parseFloat(mario.style.bottom) == parseFloat(item.style.bottom) + parseFloat(item.style.height) && parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width)) {
+j = "nok"
+fall[0] = parseFloat(item.style.left) + parseFloat(item.style.width)
+fall[1] = parseFloat(item.style.left)
+form = "yes"
+}})
+if (parseFloat(mario.style.bottom) <= 100) {return "nok"}
+return j 
+}
+
+
+function jump(j){
+setTimeout(function(){
+jumping = "yes"
+if (j < 30 && hold != "s") {
+mario.style.bottom = (parseFloat(document.getElementById("mario").style.bottom) + 2) + "%"
+jump(j + 1)
+}
+else if (plat() == "ok"){
+mario.style.bottom = (parseFloat(document.getElementById("mario").style.bottom) - 2) + "%"
+jump(31)
+}
+else {
+jumping = "no"
+tpa = "ok"
+tpd = "ok"
+tpw = "ok"
+tpr = 10
+b()
+}
+}
+, 10)
+check("w")
+}
+
+window.addEventListener("keydown", function(e){
+if (e.key == "w"){
+hold = "w"
+if (jumping == "no") {jump(0)}
+}
+if (e.key == "s"){
+mario.style.height = "5%"
+rate = 0.05
+hold = "s"
+stoptime = "no"
+}
+if (e.key == "a"){
+hold = "a"
+if (jumping == "no") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate) + "%"
+}
+}
+if (e.key == "d"){
+hold = "d"
+if (jumping == "no") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate) + "%"
+}
+}
+if (e.key == "c") {
+point()
+desp()
+}
+if (e.key == "j") {
+if (ctd == "no") {
+bul = document.createElement("div")
+document.getElementById("ground").appendChild(bul)
+bul.className = "shot"
+bul.style.width = "0.15%"
+bul.style.height = "5%"
+bul.style.left = mario.style.left
+bul.style.bottom = mario.style.bottom
+ctd = "yes"
+setTimeout(function(){ctd = "no"}, 500)
+r = 0.2
+if (hold == "a") {
+r = -0.2
+}
+bullex(bul, 0, r)
+}
+}
+if (e.key == "b") {
+sessionStorage.setItem("start", mario.style.left)
+alert("PAUSE")
+}
+if (e.key == " " && jumping == "yes") {
+stoptime = "no"
+if (hold == "no") {
+if (jumping == "yes" && zawarudo == "ok") {
+stoptime = "yes"
+zawarudo = "no"
+}
+setTimeout(function(){stoptime = "no"}, 1000)
+}
+if (hold == "a" && tpa == "ok"){
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate*12) + "%"
+tpa = "not"
+}
+if (hold == "d" && tpd == "ok"){
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate*10) + "%"
+tpd = "not"
+}
+if (hold == "w" && tpw == "ok"){
+document.getElementById("mario").style.bottom = (parseFloat(document.getElementById("mario").style.bottom) + rate*tpr*30) + "%"
+tpw = "not"
+}
+}
+check(e.key)
+mario.scrollIntoView({inline: camera, block: camera})
+})
+
+window.addEventListener("keyup", function(e){
+if (e.key == "w"){
+hold = "no"
+stoptime = "no"
+}
+if (e.key == "s"){
+mario.style.height = "10%"
+rate = 0.2
+}
+if (e.key == "a"){
+if (jumping == "yes") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate*2) + "%"
+stoptime = "no"
+}
+hold = "no"
+}
+if (e.key == "d"){
+if (jumping == "yes") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate*2) + "%"
+stoptime = "no"
+}
+hold = "no"
+}
+check(e.key)
+})
+</script>
+</body>
+</html>

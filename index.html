@@ -658,6 +658,8 @@ bullet(bull, 0, -1, i, j)
 setTimeout(function() {f()
 if (x == "yes") {
 window[item.id] = setInterval(f, 2500)
+var audio2 = new Audio('whatsapp.mp3')
+audio2.play()
 }
 }, q)
 }
@@ -667,8 +669,6 @@ window[item.id] = setInterval(f, 2500)
 function desp() {
 Array.from(document.getElementsByClassName("opp o" + levl[1])).forEach(function(item, ind){
 if (item.id[0] == "o") {
-var audio2 = new Audio('whatsapp.mp3')
-audio2.play()
 makeopp(item, ind, 10, 50, "yes")
 }
 })

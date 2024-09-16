@@ -89,9 +89,8 @@ background: rgb(200, 255, 255);
 </style>
 </head>
 <body height="500px">    
-<audio id="background-audio" autoplay><source src="sayeh.mp3" type="audio/mpeg"></audio>
 <div id="time"></div>
- <div>hi</div>
+<div>hi</div>
 <div id="sky">
 <br><br><br>
 W: JUMP<br>
@@ -863,6 +862,8 @@ tpr = 15
 })
 Array.from(document.getElementsByClassName("opp o" + levl[1])).forEach(function(item){
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height)){
+var audio = new Audio('ba3mellak.mp3')
+audio.play()
 window.location.reload()
 }
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) == parseFloat(item.style.bottom) + parseFloat(item.style.height)) {

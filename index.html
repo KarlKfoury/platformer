@@ -645,6 +645,10 @@ else {
 q = item.wait
 }
 function f(){
+if (x == "yes") {
+var audio2 = new Audio('whatsapp.mp3')
+audio2.play()
+}
 bull = document.createElement("div")
 document.getElementById("ground").appendChild(bull)
 bull.className = "pipe " + levl
@@ -658,8 +662,6 @@ bullet(bull, 0, -1, i, j)
 setTimeout(function() {f()
 if (x == "yes") {
 window[item.id] = setInterval(f, 2500)
-var audio2 = new Audio('whatsapp.mp3')
-audio2.play()
 }
 }, q)
 }

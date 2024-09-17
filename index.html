@@ -36,6 +36,8 @@ background-size: cover;
 .fakh {
 position: absolute;
 background: orange;
+background-image: url('jebne.jpeg');
+background-size: cover;
 }
 
 .pipe {
@@ -819,6 +821,9 @@ function check(l) {
 Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(item){
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
 var audio = new Audio('ba3mellak.mp3')
+if (item.style.backgroundImage == "url('wahed.png')") {
+audio = new Audio('wahed.mp3')
+}
 audio.play()
 setTimeout(function(){
 if (lose_status != "yes") {
@@ -850,6 +855,7 @@ Array.from(document.getElementsByClassName("fakh f" + levl[1])).forEach(function
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%") {
 bull = make("0.5%", "50%", (parseFloat(item.style.left) - 3) + "%", item.style.bottom, "pipe " + levl)
 item.style.width = "0%"
+bull.style.backgroundImage = "url('wahed.png')"
 bullet(bull, 0, 1, 184, 40)
 }
 })
@@ -1003,6 +1009,9 @@ mario.scrollIntoView({inline: camera, block: camera})
 })
 
 window.addEventListener("keyup", function(e){
+if (e.key == "1" || e.key == "2" || e.key == "3" || e.key == "4" || e.key == "5") {
+levl = "p" + e.key
+}
 if (e.key == "w"){
 hold = "no"
 stoptime = "no"

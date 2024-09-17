@@ -648,9 +648,6 @@ q = item.wait
 }
 function f(){
 bull = document.createElement("div")
-if (x == "yes") {
-bull.style.backgroundImage = 'url("whatslogo.jpeg")'
-}
 document.getElementById("ground").appendChild(bull)
 bull.className = "pipe " + levl
 bull.style.width = "0.15%"
@@ -658,6 +655,9 @@ bull.style.height = "5%"
 bull.style.background = "rgb(80, 50, 50)"
 bull.style.left = item.style.left
 bull.style.bottom = (parseFloat(item.style.bottom) + 5.1) + "%"
+if (x == "yes") {
+bull.style.backgroundImage = 'url("whatslogo.jpeg")'
+}
 bullet(bull, 0, -1, i, j)
 }
 setTimeout(function() {f()

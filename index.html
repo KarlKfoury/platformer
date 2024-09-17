@@ -822,7 +822,7 @@ Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(ite
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
 var audio = new Audio('ba3mellak.mp3')
 alert(item.style.backgroundImage)
-if (item.style.backgroundImage == "url('wahed.png')") {
+if (item.style.backgroundImage == 'url("wahed.png")') {
 audio = new Audio('wahed.mp3')
 }
 audio.play()

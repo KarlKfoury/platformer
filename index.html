@@ -815,6 +815,8 @@ b.outerHTML = " "
 }
 }
 
+var playaudio = true
+
 
 function check(l) {
 Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(item){
@@ -826,7 +828,6 @@ audio = new Audio('wahed.mp3')
 else if (item.style.backgroundImage == 'url("whatslogo.jpeg")') {
 audio = new Audio('whatsapp.mp3')
 }
-var playaudio = true
 if (playaudio) {
 audio.play()
 playaudio = false

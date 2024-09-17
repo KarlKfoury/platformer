@@ -821,6 +821,7 @@ function check(l) {
 Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(item){
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
 var audio = new Audio('ba3mellak.mp3')
+alert(item.style.backgroundImage)
 if (item.style.backgroundImage == "url('wahed.png')") {
 audio = new Audio('wahed.mp3')
 }
@@ -853,6 +854,8 @@ document.getElementById("pipe" + item.id[3] + item.id[4]).style.width = "0%"
 })
 Array.from(document.getElementsByClassName("fakh f" + levl[1])).forEach(function(item){
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%") {
+var audio4 = new Audio('musashi.mp3')
+audio4.play()
 bull = make("0.5%", "50%", (parseFloat(item.style.left) - 3) + "%", item.style.bottom, "pipe " + levl)
 item.style.width = "0%"
 bull.style.backgroundImage = "url('wahed.png')"

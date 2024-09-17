@@ -648,8 +648,7 @@ q = item.wait
 }
 function f(){
 if (x == "yes") {
-var audio2 = new Audio('whatsapp.mp3')
-audio2.play()
+item.style.backgroundImage = 'url("whatslogo.jpeg")'
 }
 bull = document.createElement("div")
 document.getElementById("ground").appendChild(bull)
@@ -823,6 +822,9 @@ if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(it
 var audio = new Audio('ba3mellak.mp3')
 if (item.style.backgroundImage == 'url("wahed.png")') {
 audio = new Audio('wahed.mp3')
+}
+else if (item.style.backgroundImage == 'url("whatslogo.jpeg")') {
+audio = new Audio('whatsapp.mp3')
 }
 audio.play()
 setTimeout(function(){

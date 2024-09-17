@@ -647,10 +647,10 @@ else {
 q = item.wait
 }
 function f(){
-if (x == "yes") {
-item.style.backgroundImage = 'url("whatslogo.jpeg")'
-}
 bull = document.createElement("div")
+if (x == "yes") {
+bull.style.backgroundImage = 'url("whatslogo.jpeg")'
+}
 document.getElementById("ground").appendChild(bull)
 bull.className = "pipe " + levl
 bull.style.width = "0.15%"
@@ -826,7 +826,11 @@ audio = new Audio('wahed.mp3')
 else if (item.style.backgroundImage == 'url("whatslogo.jpeg")') {
 audio = new Audio('whatsapp.mp3')
 }
+var playaudio = true
+if (playaudio) {
 audio.play()
+playaudio = false
+}
 setTimeout(function(){
 if (lose_status != "yes") {
 alert("gameover")

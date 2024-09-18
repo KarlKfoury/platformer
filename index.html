@@ -657,6 +657,7 @@ bull.style.left = item.style.left
 bull.style.bottom = (parseFloat(item.style.bottom) + 5.1) + "%"
 if (x == "yes") {
 bull.style.backgroundImage = 'url("whatslogo.jpeg")'
+bull.style.backgroundSize = cover
 }
 bullet(bull, 0, -1, i, j)
 }
@@ -821,6 +822,7 @@ var playaudio = true
 function check(l) {
 Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(item){
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
+alert(item.style.backgroundImage)
 var audio = new Audio('ba3mellak.mp3')
 if (item.style.backgroundImage == 'url("wahed.png")') {
 audio = new Audio('wahed.mp3')
@@ -834,7 +836,7 @@ playaudio = false
 }
 setTimeout(function(){
 if (lose_status != "yes") {
-alert("gameover")
+alert("3melet wasel bi jrouhak")
 }
 lose_status = "yes"
 window.location.reload()

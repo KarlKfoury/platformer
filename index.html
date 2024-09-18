@@ -264,8 +264,7 @@ hint4.style.left = "18%"
 hint4.style.height = "100%"
 hint4.style.width = "1%"
 hint4.style.bottom = "100%"
-hint4.hint = "J: SHOOT\nS: DUCK"
-
+ 
 opp1.style.left = "20%"
 opp1.style.height = "10%"
 opp1.style.width = "0.3%"
@@ -348,8 +347,7 @@ hint5.style.left = "31.7%"
 hint5.style.height = "100%"
 hint5.style.width = "1%"
 hint5.style.bottom = "100%"
-hint5.hint = "GO DIRECTLY OVER WHITE AND PRESS C"
-
+ 
 check2.style.left = "32.7%"
 check2.style.height = "300%"
 check2.style.width = "0.3%"
@@ -365,7 +363,6 @@ hint6.style.left = "36%"
 hint6.style.height = "100%"
 hint6.style.width = "1%"
 hint6.style.bottom = "100%"
-hint6.hint = "TAKING THE BLUE CUBE: REFRESHES ABILITY TO TELEPORT \nPRESS S WHILE IN JUMP: END JUMP"
 
 doub1.style.left = "37%"
 doub1.style.height = "12%"
@@ -574,7 +571,6 @@ hint7.style.left = "63%"
 hint7.style.height = "100%"
 hint7.style.width = "1%"
 hint7.style.bottom = "100%"
-hint7.hint = "TAKING THE GRAY CUBE: REMOVES BROWN BLOCK"
 
 check3.style.left = "61.7%"
 check3.style.height = "300%"
@@ -719,6 +715,9 @@ sessionStorage.setItem("start", mario.style.left)
 if (levl == "p5") {
 window.location.href = "lvl2.html"
 }
+else if (levl == "p4") {
+var audio4 = new Audio('australia.mp3')
+audio.play()
 }
 })
 if (yes != "yes") {
@@ -764,6 +763,10 @@ tick()
 }
 boss()
 
+if (levl == "p4") {
+var audio4 = new Audio('australia.mp3')
+audio.play()
+}
 
 function make(wid, hei, lef, bot, cl) {
 bullz = document.createElement("div")

@@ -764,11 +764,6 @@ tick()
 }
 boss()
 
-if (levl == "p4") {
-var audio4 = new Audio('australia.opus')
-audio.play()
-}
-
 function make(wid, hei, lef, bot, cl) {
 bullz = document.createElement("div")
 document.getElementById("ground").appendChild(bullz)
@@ -1050,6 +1045,11 @@ hold = "no"
 }
 check(e.key)
 })
+
+if (levl == "p4") {
+var audio4 = new Audio('australia.opus')
+audio.play()
+}
 </script>
 </body>
 </html>

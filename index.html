@@ -710,7 +710,6 @@ Array.from(document.getElementsByClassName("check")).forEach(function(item){
 if (item.style.left == mario.style.left){
 yes = "yes"
 levl = levl[0] + item.id[5]
-alert(levl)
 if (levl == "p4") {
 alert("australia")
 var audio5 = new Audio('australia.mp3')
@@ -1049,7 +1048,7 @@ hold = "no"
 check(e.key)
 })
 
-if (levl = "p4") {
+if (levl == "p4") {
 var audio5 = new Audio('australia.mp3')
 audio5.play()
 }

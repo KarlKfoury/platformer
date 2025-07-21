@@ -710,15 +710,16 @@ Array.from(document.getElementsByClassName("check")).forEach(function(item){
 if (item.style.left == mario.style.left){
 yes = "yes"
 levl = levl[0] + item.id[5]
+if (levl == "p4") {
+alert("australia")
+var audio4 = new Audio('australia.mp3')
+audio.play()
+}
 mario.style.left = (parseFloat(mario.style.left) + 2.6) + "%"
 sessionStorage.setItem("level", levl)
 sessionStorage.setItem("start", mario.style.left)
 if (levl == "p5") {
 window.location.href = "lvl2.html"
-}
-else if (levl == "p4") {
-var audio4 = new Audio('australia.mp3')
-audio.play()
 }
 }
 })
@@ -822,7 +823,7 @@ var playaudio = true
 function check(l) {
 Array.from(document.getElementsByClassName("pipe " + levl)).forEach(function(item){
 if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height) && item.style.width != "0%"){
-var audio = new Audio('australia.mp3')
+var audio = new Audio('ba3mellak.mp3')
 if (item.style.backgroundImage == 'url("wahed.png")') {
 audio = new Audio('wahed.mp3')
 }
@@ -1046,12 +1047,6 @@ hold = "no"
 }
 check(e.key)
 })
-
-if (levl == "p4") {
- alert("australia boss")
-var audio4 = new Audio('australia.mp3')
-audio.play()
-}
 </script>
 </body>
 </html>

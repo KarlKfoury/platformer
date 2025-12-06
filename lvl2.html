@@ -1163,13 +1163,14 @@ tpw = "not"
 }
 if (e.key == "y") {
 if (camera == "center") {
+  alert("unlocking camera")
   camera = "noncenter"
 } 
 else {
   camera = "center"
 }
 }
-if ((e.code === 'Space' || e.key === ' ') && e.target === document.body) {
+if (e.key == " " && e.target == document.body) {
 e.preventDefault();
 }
 }

@@ -1161,9 +1161,22 @@ if (hold == "w" && tpw == "ok"){
 document.getElementById("mario").style.bottom = (parseFloat(document.getElementById("mario").style.bottom) + rate*tpr*30) + "%"
 tpw = "not"
 }
+if (e.key == "y") {
+if (camera == "center") {
+  camera = "noncenter"
+} 
+else {
+  camera = center
+}
+}
+if ((e.code === 'Space' || e.key === ' ') && e.target === document.body) {
+e.preventDefault();
+}
 }
 check(e.key)
+if (camera = "center") {
 mario.scrollIntoView({inline: camera, block: camera})
+}
 })
 
 window.addEventListener("keyup", function(e){

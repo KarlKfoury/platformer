@@ -945,23 +945,23 @@ check("w")
 }
 
 window.addEventListener("keydown", function(e){
-if (e.key == "r"){
+if (e.key == "w"){
 hold = "w"
 if (jumping == "no") {jump(0)}
 }
-if (e.key == "f"){
+if (e.key == "s"){
 mario.style.height = "5%"
 rate = 0.05
 hold = "s"
 stoptime = "no"
 }
-if (e.key == "d"){
+if (e.key == "a"){
 hold = "a"
 if (jumping == "no") {
 document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate) + "%"
 }
 }
-if (e.key == "g"){
+if (e.key == "d"){
 hold = "d"
 if (jumping == "no") {
 document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate) + "%"
@@ -983,7 +983,7 @@ bul.style.bottom = mario.style.bottom
 ctd = "yes"
 setTimeout(function(){ctd = "no"}, 500)
 r = 0.2
-if (hold == "d") {
+if (hold == "a") {
 r = -0.2
 }
 bullex(bul, 0, r)
@@ -1002,15 +1002,15 @@ zawarudo = "no"
 }
 setTimeout(function(){stoptime = "no"}, 1000)
 }
-if (hold == "d" && tpa == "ok"){
+if (hold == "a" && tpa == "ok"){
 document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate*12) + "%"
 tpa = "not"
 }
-if (hold == "g" && tpd == "ok"){
+if (hold == "d" && tpd == "ok"){
 document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate*10) + "%"
 tpd = "not"
 }
-if (hold == "r" && tpw == "ok"){
+if (hold == "w" && tpw == "ok"){
 document.getElementById("mario").style.bottom = (parseFloat(document.getElementById("mario").style.bottom) + rate*tpr*30) + "%"
 tpw = "not"
 }
@@ -1023,22 +1023,22 @@ window.addEventListener("keyup", function(e){
 if (e.key == "1" || e.key == "2" || e.key == "3" || e.key == "4" || e.key == "5") {
 levl = "p" + e.key
 }
-if (e.key == "r"){
+if (e.key == "w"){
 hold = "no"
 stoptime = "no"
 }
-if (e.key == "f"){
+if (e.key == "s"){
 mario.style.height = "10%"
 rate = 0.2
 }
-if (e.key == "d"){
+if (e.key == "a"){
 if (jumping == "yes") {
 document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate*2) + "%"
 stoptime = "no"
 }
 hold = "no"
 }
-if (e.key == "g"){
+if (e.key == "d"){
 if (jumping == "yes") {
 document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate*2) + "%"
 stoptime = "no"
